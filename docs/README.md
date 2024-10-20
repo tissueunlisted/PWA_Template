@@ -1,6 +1,6 @@
 # INTRODUCTION TO FLASK AND PROGRESSIVE WEB APPS TUTORIAL
 
-This guided tutorial will introduce HSC Software Engineering to the basics of developing websites with the [Python Flask framework](https://flask.palletsprojects.com/en/3.0.x/). The tutorial has been specifically designed for requirements in the [NESA Software Engineering Syllabus](https://curriculum.nsw.edu.au/learning-areas/tas/software-engineering-11-12-2022/content/n12/fa6aab137e) and for students in NSW Department of Education schools using eT4L computers.
+This guided tutorial will introduce HSC Software Engineering to the basics of developing websites with the [Python Flask framework](https://flask.palletsprojects.com/en/3.0.x/). The tutorial has been specifically designed for requirements in the [NESA Software Engineering Syllabus](https://curriculum.nsw.edu.au/learning-areas/tas/software-engineering-11-12-2022/content/n12/fa6aab137e).
 
 A [list of popular PWA's](https://business.adobe.com/blog/basics/progressive-web-app-examples) (including Ube, Spotify, Facebook and Google Maps)
 
@@ -66,14 +66,10 @@ This screen capture shows how the final PWA will be rendered to the user.
 
 _\*You will need to configure your formatters, it is recommended esbenp.prettier-vscode is your default formatter and ms-python.black-formatter is the Python language formatter_
 
-> [!IMPORTANT]
-> From now on, you should aim to run all commands from the CLI. You are discouraged from left/right clicking the GUI. You will find it feels slow at first, but through disciplined use, you will become much quicker and more accurate with CLI commands than GUI controls.
-
-Make sure you open a new terminal with the keys <kbd>Ctrl</kbd> + <kbd>`</kbd> and choose Git Bash from the menu option in the top right of the terminal shell.
 
 ![Screen capture of the menu options for terminals](/docs/README_resources/git_bash_shell.png "Choose Git Bash from the list")
 
-1. Get the working files, which include this README.md
+# Get the working files, which include this README.md
    - Open a new window in VSCode
    - Choose your working directory
 
@@ -82,10 +78,9 @@ git clone https://github.com/TempeHS/Flask_PWA_Programming_For_The_Web_Task_Temp
 cd Flask_PWA_Programming_For_The_Web_Task_Template
 ```
 
-> [!TIP]
-> Alternatively, you can fork the [template repository](https://github.com/TempeHS/Flask_PWA_Programming_For_The_Web_Task_Template) to your own GitHub account and open it in a Codespace in which all dependencies and extensions will be automatically installed.
 
-4. Install necessary dependencies.
+
+# Install necessary dependencies.
 
 ```bash
 pip install sqlite
