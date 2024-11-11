@@ -12,13 +12,13 @@ A [Progressive Web Apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Pro
 
 Because PWAs are websites, they have the same basic features as any other website: at least one HTML page, which loads CSS and JavaScript. Javascript is the language of the web and is exclusively used for the client-side front end; python, in the web context, can only be used in the back end. Like a normal website, the JavaScript loaded by the page has a global Window object and can access all the Web APIs that are available through that object. The PWA standard as defined by [W3C Standards](https://www.w3.org/standards/) has some specific features additional to a website:
 
-| Feature             | Purpose                                                                                                                                                                                                                                                                                                                                  |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| manifest.json       | An app manifest file, which, at a minimum, provides information that the operating system needs to install the PWA, such as the app name, screen orientation and icon set for different-sized views.                                                                                                                                     |
+| Feature             | Purpose                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| manifest.json       | An app manifest file, which, at a minimum, provides information that the operating system needs to install the PWA, such as the app name, screen orientation and icon set for different-sized views.                                                                                                                                                          |
 | serviceworker.js    | A service worker, which, at a minimum, manages the caching that enables an online and offline experience whilst also interfacing with API's such as the [notification web API](https://developer.mozilla.org/en-US/docs/Web/API/Notification). It's important to understand that this JS file cannot control the DOM of the application for security reasons. |
-| Icons & screenshots | A set of icons and screenshots that are used when uploading to an app store and when installing it as a native application. It is these icons that will be used in the desktop or app launcher when installed.                                                                                                                           |
-| Installable         | Because of the information contained in the manifest.json all PWA's can be installed like a native app. They can also be packaged and uploaded to the Google, Microsoft & Apple app stores.                                                                                                                                              |
-| Cached locally      | Because the service worker details all apps and pages to be cached (all pages must have a \*.html name), the app and its resources can be cached locally for quick load times.                                                                                                                                                           |
+| Icons & screenshots | A set of icons and screenshots that are used when uploading to an app store and when installing it as a native application. It is these icons that will be used in the desktop or app launcher when installed.                                                                                                                                                |
+| Installable         | Because of the information contained in the manifest.json all PWA's can be installed like a native app. They can also be packaged and uploaded to the Google, Microsoft & Apple app stores.                                                                                                                                                                   |
+| Cached locally      | Because the service worker details all apps and pages to be cached (all pages must have a \*.html name), the app and its resources can be cached locally for quick load times.                                                                                                                                                                                |
 
 _Note backend apps where the web server serves all pages from the DNS root do not meet the PWA specification._
 
@@ -40,6 +40,7 @@ This screen capture shows how the final PWA will be rendered to the user.
 
 > [!Important]
 > MacOS and Linux users may have a `pip3` soft link instead of `pip`, run the below commands to see what path your system is configured with and use that command through the project. If neither command returns a version, then likely [Python 3.x](https://www.python.org/downloads/) needs to be installed.
+>
 > ```bash
 > pip show pip
 > pip3 show pip
@@ -64,13 +65,13 @@ This screen capture shows how the final PWA will be rendered to the user.
 
 1. Install the necessary extensions for this tutorial.
 
-| Required Extensions                                                                                    | Suggested Python Extensions                                                                                  |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf)           | [ms-python.flake8](https://marketplace.visualstudio.com/items?itemName=ms-python.flake8)                     |
-| [McCarter.start-git-bash](https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash) | [ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)\* |
-| [yy0931.vscode-sqlite3-editor](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor)  | [ms-python.python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)                     |
-|                                                                                                        | [oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)         |
-|                                                                                                        | [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)\*       |
+| Required Extensions                                                                                              | Suggested Python Extensions                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf)                     | [ms-python.flake8](https://marketplace.visualstudio.com/items?itemName=ms-python.flake8)                     |
+| [McCarter.start-git-bash](https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash)           | [ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)\* |
+| [yy0931.vscode-sqlite3-editor](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor) | [ms-python.python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)                     |
+|                                                                                                                  | [oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)         |
+|                                                                                                                  | [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)\*       |
 
 _\*You will need to configure your formatters, it is recommended esbenp.prettier-vscode is your default formatter and ms-python.black-formatter is the Python language formatter_
 
@@ -81,22 +82,11 @@ Make sure you open a new terminal with the keys <kbd>Ctrl</kbd> + <kbd>`</kbd> a
 
 ![Screen capture of the menu options for terminals](/docs/README_resources/git_bash_shell.png "Choose Git Bash from the list")
 
-1. Get the working files, which include this README.md
-   - Open a new window in VSCode
-   - Choose your working directory
-
-```bash
-git clone https://github.com/TempeHS/Flask_PWA_Programming_For_The_Web_Task_Template.git
-cd Flask_PWA_Programming_For_The_Web_Task_Template
-```
-
-> [!TIP]
-> Alternatively, you can fork the [template repository](https://github.com/TempeHS/Flask_PWA_Programming_For_The_Web_Task_Template) to your own GitHub account and open it in a Codespace in which all dependencies and extensions will be automatically installed.
-
-4. Install necessary dependencies.
+1. Install necessary dependencies.
 
 ```bash
 pip install flask
+pip install SQLite3
 ```
 
 ---
@@ -116,7 +106,9 @@ touch LICENSE
 code LICENSE
 ```
 
-Copy the [GNU GPL license](https://www.gnu.org/licenses/gpl-3.0.txt) text into the file. GNU GPL is a free software license, or copyleft license, that guarantees end users the freedom to run, study, share, and modify the software. 3. Create your directory structure and some base files using BASH scripts reading text files.
+Copy the [GNU GPL license](https://www.gnu.org/licenses/gpl-3.0.txt) text into the file. GNU GPL is a free software license, or copyleft license, that guarantees end users the freedom to run, study, share, and modify the software.
+
+1. Create your directory structure and some base files using BASH scripts reading text files.
 
 ```text
 ├── .database
@@ -132,14 +124,14 @@ Copy the [GNU GPL license](https://www.gnu.org/licenses/gpl-3.0.txt) text into t
 └── database_manager.py
 ```
 
-3. Populate a text file with a list of folders you need at the root of your project.
+4. Populate a text file with a list of folders you need at the root of your project.
 
 ```bash
 touch folders.txt
 code folder.txt
 ```
 
-4. Run a BASH script to read the text file and create the folders listed in it.
+5. Run a BASH script to read the text file and create the folders listed in it.
 
 ```bash
 while read -r line; do
@@ -148,14 +140,14 @@ mkdir -p $line
 done < folders.txt
 ```
 
-5. Populate the file with a list of files you need at the root of your project.
+6. Populate the file with a list of files you need at the root of your project.
 
 ```bash
 touch files.txt
 code files.txt
 ```
 
-6. Run a BASH script to read the text file and create the files listed in it.
+7. Run a BASH script to read the text file and create the files listed in it.
 
 ```bash
 while read -r line; do
@@ -171,71 +163,12 @@ done < files.txt\
 
 ---
 
-### Setup your SQLite3 Database
-
-```bash
-cd .database
-touch data_source.db
-touch my_queries.sql
-code my_queries.sql
-```
-
-> [!Note]
-> The following SQL queries are provided as an example only. Students are encouraged to select their content and design a database schema for it; ideas include:
->
-> - Favourite bands
-> - Favourite movies
-> - Favourite games
-> - Favourite books
-> - etc
-
-1. To run SQLite3 SQL queries in VSCode
-Open the DB file, then choose "Query Editor" from the top menu.
-
-```bash
-code data_source.db
-```
-
-![Screen capture of query editor](/docs/README_resources/query_editor.png "Choose Query Editor from the top menu")
-
-```sql
-CREATE TABLE extension(extID INTEGER NOT NULL PRIMARY KEY,name TEXT NOT NULL, hyperlink TEXT NOT NULL,about TEXT NOT NULL,image TEXT NOT NULL,language TEXT NOT NULL);
-```
-
-2. After running each query put `--` infront of the query to turn it into a comment so it doesn't run again and error.
-3. Run SQL queries to populate your table.
-
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (1,"Live Server","https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer","Launch a development local Server with live reload feature for static & dynamic pages","https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default","HTML CSS JS");
-```
-
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (2,"Render CR LF","https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf","Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.","https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
-```
-
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (3,"Start GIT BASH","https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash","Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder.","https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
-```
-
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (4,"SQLite3 Editor","https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor","Edit SQLite3 files like you would in spreadsheet applications.","https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default","SQL");
-```
-
-4. Run some SQL queries to test your database.
-
-```sql
-SELECT * FROM extension;
-SELECT * FROM extension WHERE language LIKE '#BASH';
-```
-
----
-
 ### Make your graphic assets
 
 > [!Note]
 > Graphic design is not the focus of this course. It is suggested that you do not spend excessive time designing logos and icons.
 
-1. Use Photoshop or [Canva](https://www.canva.com/en_au/signup/?signupRedirect=%2Fedu-signup&loginRedirect=%2Fedu-signup&brandingVariant=edu) to design a simple square logo 1080px X 1080px named logo.png. Save all working files (*.psd, pre-optimised originals, etc) into the .workingdocuments directory.
+1. Use Photoshop or [Canva](https://www.canva.com/en_au/signup/?signupRedirect=%2Fedu-signup&loginRedirect=%2Fedu-signup&brandingVariant=edu) to design a simple square logo 1080px X 1080px named logo.png. Save all working files (\*.psd, pre-optimised originals, etc) into the .workingdocuments directory.
 2. Design a simplified app icon 512px X 512px named favicon.png.
 3. Web optimise the images using [TinyPNG](https://tinypng.com/).
 4. Save the files into the static/images folder.
@@ -441,6 +374,65 @@ python main.py
 
 > [!Note]
 > To explain how Jinga2 works in this example when index.html is called, the render will start with layout.html with the code from partials/menu.html inserted where `{% include "partials/menu.html" %}` is and the index.html content that is between the `{% block content %}` and `{% endblock %}` will be inserted in the same tags in the layout.html.
+
+---
+
+### Setup your SQLite3 Database
+
+```bash
+cd .database
+touch data_source.db
+touch my_queries.sql
+code my_queries.sql
+```
+
+> [!Note]
+> The following SQL queries are provided as an example only. Students are encouraged to select their content and design a database schema for it; ideas include:
+>
+> - Favourite bands
+> - Favourite movies
+> - Favourite games
+> - Favourite books
+> - etc
+
+1. To run SQLite3 SQL queries in VSCode
+   Open the DB file, then choose "Query Editor" from the top menu.
+
+```bash
+code data_source.db
+```
+
+![Screen capture of query editor](/docs/README_resources/query_editor.png "Choose Query Editor from the top menu")
+
+```sql
+CREATE TABLE extension(extID INTEGER NOT NULL PRIMARY KEY,name TEXT NOT NULL, hyperlink TEXT NOT NULL,about TEXT NOT NULL,image TEXT NOT NULL,language TEXT NOT NULL);
+```
+
+2. After running each query put `--` infront of the query to turn it into a comment so it doesn't run again and error.
+3. Run SQL queries to populate your table.
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (1,"Live Server","https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer","Launch a development local Server with live reload feature for static & dynamic pages","https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default","HTML CSS JS");
+```
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (2,"Render CR LF","https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf","Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.","https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
+```
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (3,"Start GIT BASH","https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash","Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder.","https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
+```
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (4,"SQLite3 Editor","https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor","Edit SQLite3 files like you would in spreadsheet applications.","https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default","SQL");
+```
+
+4. Run some SQL queries to test your database.
+
+```sql
+SELECT * FROM extension;
+SELECT * FROM extension WHERE language LIKE '#BASH';
+```
 
 ---
 
