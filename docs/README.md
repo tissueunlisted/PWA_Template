@@ -294,8 +294,8 @@ code menu.html
 ```
 
 ```bash
-`cd ../../static/css`
-`code style.css`
+cd ../../static/css
+code style.css
 ```
 
 2. Style the menu by inserting this below your existing CSS in static/css/style.css.
